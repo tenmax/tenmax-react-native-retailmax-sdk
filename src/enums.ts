@@ -1,0 +1,16 @@
+export enum EventType {
+  identify = 'identify',
+  pageView = 'pageView',
+  completeRegistration = 'completeRegistration',
+  appInstall = 'appInstall',
+  search = 'search',
+  listContent = 'listContent',
+  listView = 'listView',
+  viewContent = 'viewContent',
+  addToWishlist = 'addToWishlist',
+  addToCart = 'addToCart',
+  viewCart = 'viewCart',
+  addPaymentInfo = 'addPaymentInfo',
+  initiateCheckout = 'initiateCheckout',
+  purchase = 'purchase',
+}
