@@ -16,6 +16,12 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
+const PLATFORM = Platform.select({
+  ios: 'ios',
+  android: 'android',
+  default: 'others',
+});
+
 const TenmaxSdk = NativeModules.TenmaxSdk
   ? NativeModules.TenmaxSdk
   : new Proxy(
@@ -297,6 +303,7 @@ export default class TenMax {
           sid: this.sessionId(),
           uri: uri,
           referer: referer,
+          platform: PLATFORM,
           utm: utm,
           eventType: eventType,
           eventData: eventData,
