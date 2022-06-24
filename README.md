@@ -100,8 +100,20 @@ EcDMPSDK.identify(
 
 ```js
 // Track a pageView event
-const eventType = 'pageView'
-const eventData = {}
+const eventType = "viewContent",
+const eventData = {
+    "productId": "",
+    "skuIds": [""],
+    "name": "",
+    "description": "",
+    "brand": "",
+    "salePrice": 0,
+    "listPrice": 0,
+    "currency": "",
+    "link": "",
+    "imgLink": "",
+    "category": ""
+}
 const uri = '/categories/3c/123'
 const referer = 'home'
 const utm = 'utm_content=buffercf3b2&utm_medium=social&utm_source=facebook.com&utm_campaign=buffer'
@@ -118,6 +130,182 @@ EcDMPSDK.event(
 ```
 
 > Events are queue and processed in batch, for events that require to be delivered immediately, set `forceFlush` to `true`. All queued events will be flushed altogether after an event with `forceFlush = true` is been sent.
+
+**EventDate Need**
+
+- pageView
+    
+    ```js
+    const eventType = "pageView",
+    const eventData = {}
+    }
+    ```
+    
+- completeRegistration
+    
+    ```js
+    const eventType = "completeRegistration",
+    const eventData = {}
+    ```
+    
+- appInstall
+    
+    ```js
+    const eventType = "appInstall",
+    const eventData = {}
+    ```
+    
+- search
+    
+    ```js
+    const eventType = "search",
+    const eventData = {
+    	"searchTerm": "",
+    	"category": ""
+    }
+    ```
+    
+- listContent
+    
+    ```js
+    const eventType = "listContent",
+    const eventData = {
+    	"filters": [
+    	  {
+    			"type": "category",
+    			"value": ""
+    		},
+    		{
+    			"type": "brand",
+    			"value": ""
+    		},
+    		{
+    			"type": "searchTerm",
+    			"value": ""
+    		},
+    		{
+    			"type": "minPrice",
+    			"value": ""
+    		},
+    	  {
+    			"type": "maxPrice",
+    			"value": ""
+    		}
+    	]
+    }
+    ```
+    
+- listView
+    
+    ```js
+    const eventType = "listView",
+    const eventData = {
+    	"category": ""
+    }
+    ```
+    
+- viewContent
+    
+    ```js
+    const eventType = "viewContent",
+    const eventData = {
+    	"productId": "",
+    	"skuIds": [""],
+    	"name": "",
+    	"description": "",
+    	"brand": "",
+    	"salePrice": 0,
+    	"listPrice": 0,
+    	"currency": "",
+    	"link": "",
+    	"imgLink": "",
+    	"category": ""
+    }
+    ```
+    
+- addToWishlist
+    
+    ```js
+    const eventType = "addToWishlist",
+    const eventData = {
+    	"skuIds": [""],
+    	"productId": "",
+    	"currency": "",
+    	"quantity": 0,
+    	"salePrice": 0,
+    	"listPrice": 0,
+    	"category": ""
+    }
+    ```
+    
+- addToCart
+    
+    ```js
+    const eventType = "addToCart",
+    const eventData = {
+    	"skuId": "",
+    	"productId": "",
+    	"name": "",
+    	"currency": "",
+    	"quantity": 0,
+    	"salePrice": 0,
+    	"listPrice": 0,
+    	"category": ""
+    }
+    ```
+    
+- viewCart
+    
+    ```js
+    const eventType = "viewCart",
+    const eventData = {
+    	"skuIds":[""],
+    	"productIds":[""],
+    	"names":[""],
+    	"currency":"",
+    	"quantities":[0],
+    	"salePrices":[0],
+    	"totalPrice":0
+    }
+    ```
+    
+- AddPaymentInfo
+    
+    ```js
+    const eventType = "AddPaymentInfo",
+    const eventData = {
+    	"paymentMethod": "",
+    	"paymentDetail": "",
+    	"totalPrice": 0
+    }
+    ```
+    
+- InitiateCheckout
+    
+    ```js
+    const eventType = "InitiateCheckout",
+    const eventData = {
+    	"totalPrice": 0,
+    	"postcode": ""
+    }
+    ```
+    
+- purchase
+    
+    ```js
+    const eventType = "purchase",
+    const eventData = {
+    	"skuIds": [""],
+    	"productIds": [""],
+    	"names": [""],
+    	"salePrices": [0],
+    	"quantities": [0],
+    	"currency": "",
+    	"totalPrice": 0,
+    	"orderId": ""
+    }
+    ```
+
 
 **5. Call `EcDMPSDK.optOut()` to enable / disable event tracking**
 
