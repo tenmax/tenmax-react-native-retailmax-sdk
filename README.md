@@ -99,8 +99,8 @@ EcDMPSDK.identify(
 **4. Call `EcDMPSDK.event(eventType, eventData, uri, referer, utm, forceFlush)` to track events.**
 
 ```js
-// Track a pageView event
-const eventType = "viewContent",
+// Example of viewContent event
+const eventType = EventType.viewContent
 const eventData = {
     "productId": "",
     "skuIds": [""],
@@ -131,34 +131,37 @@ EcDMPSDK.event(
 
 > Events are queue and processed in batch, for events that require to be delivered immediately, set `forceFlush` to `true`. All queued events will be flushed altogether after an event with `forceFlush = true` is been sent.
 
-**EventDate Need**
+**Event Types and EventData Need**
+
+Event types are defined as enum of strings for convenience purpose.
+
+Predefined event types includes:
 
 - pageView
     
     ```js
-    const eventType = "pageView",
+    const eventType = EventType.pageView
     const eventData = {}
-    }
     ```
     
 - completeRegistration
     
     ```js
-    const eventType = "completeRegistration",
+    const eventType = EventType.completeRegistration
     const eventData = {}
     ```
     
 - appInstall
     
     ```js
-    const eventType = "appInstall",
+    const eventType = EventType.appInstall
     const eventData = {}
     ```
     
 - search
     
     ```js
-    const eventType = "search",
+    const eventType = EventType.search
     const eventData = {
     	"searchTerm": "",
     	"category": ""
@@ -168,7 +171,7 @@ EcDMPSDK.event(
 - listContent
     
     ```js
-    const eventType = "listContent",
+    const eventType = EventType.listContent
     const eventData = {
     	"filters": [
     	  {
@@ -198,7 +201,7 @@ EcDMPSDK.event(
 - listView
     
     ```js
-    const eventType = "listView",
+    const eventType = EventType.listView
     const eventData = {
     	"category": ""
     }
@@ -207,7 +210,7 @@ EcDMPSDK.event(
 - viewContent
     
     ```js
-    const eventType = "viewContent",
+    const eventType = EventType.viewContent
     const eventData = {
     	"productId": "",
     	"skuIds": [""],
@@ -226,7 +229,7 @@ EcDMPSDK.event(
 - addToWishlist
     
     ```js
-    const eventType = "addToWishlist",
+    const eventType = EventType.addToWishlist
     const eventData = {
     	"skuIds": [""],
     	"productId": "",
@@ -241,7 +244,7 @@ EcDMPSDK.event(
 - addToCart
     
     ```js
-    const eventType = "addToCart",
+    const eventType = EventType.addToCart
     const eventData = {
     	"skuId": "",
     	"productId": "",
@@ -257,7 +260,7 @@ EcDMPSDK.event(
 - viewCart
     
     ```js
-    const eventType = "viewCart",
+    const eventType = EventType.viewCart
     const eventData = {
     	"skuIds":[""],
     	"productIds":[""],
@@ -269,10 +272,10 @@ EcDMPSDK.event(
     }
     ```
     
-- AddPaymentInfo
+- addPaymentInfo
     
     ```js
-    const eventType = "AddPaymentInfo",
+    const eventType = EventType.addPaymentInfo
     const eventData = {
     	"paymentMethod": "",
     	"paymentDetail": "",
@@ -280,10 +283,10 @@ EcDMPSDK.event(
     }
     ```
     
-- InitiateCheckout
+- initiateCheckout
     
     ```js
-    const eventType = "InitiateCheckout",
+    const eventType = EventType.initiateCheckout
     const eventData = {
     	"totalPrice": 0,
     	"postcode": ""
@@ -293,7 +296,7 @@ EcDMPSDK.event(
 - purchase
     
     ```js
-    const eventType = "purchase",
+    const eventType = EventType.purchase
     const eventData = {
     	"skuIds": [""],
     	"productIds": [""],
@@ -328,50 +331,6 @@ Refer to the [example app](/example/) for complete usage demonstrations of all e
 Sample events data can be found under:
 
 [`./example/src/MockData.js`](/example/src/MockData.js)
-
-## Event Types
-
-Event types are defined as enum of strings for convenience purpose.
-
-Predefined event types includes:
-- pageView
-- completeRegistration
-- appInstall
-- search
-- listContent
-- listView
-- viewContent
-- addToWishlist
-- addToCart
-- viewCart
-- addPaymentInfo
-- initiateCheckout
-- purchase
-
-Usage:
-
-```js
-import { EcDMPSDK, EventType } from 'react-native-tenmax-sdk';
-
-//...
-
-EcDMPSDK.event(
-  EventType.pageView,
-  ...
-)
-
-```
-
-is the same as
-
-```js
-
-EcDMPSDK.event(
-  'pageView',
-  ...
-)
-
-```
 
 ## License
 
